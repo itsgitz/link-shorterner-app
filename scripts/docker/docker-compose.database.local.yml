@@ -1,0 +1,16 @@
+name: link_shorterner_app_local
+services:
+  db:
+    image: postgres:17.2
+    restart: always
+    env_file:
+      - ../../.env
+    volumes:
+      - type: volume
+        source: pgsql
+        target: /var/lib/postgresql
+    ports:
+      - 127.0.0.1:5432:5432
+
+volumes:
+  pgsql:
